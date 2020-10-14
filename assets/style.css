@@ -1,0 +1,61 @@
+html {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 1302px;
+  margin: 100px auto 0 auto;
+}
+
+.above-table {
+  margin-bottom: 20px;
+  min-height: 18px;
+}
+.above-table .button-group {
+  float: right;
+}
+
+.table {
+  position: relative;
+}
+.table table {
+  border-collapse: collapse;
+  box-shadow: black 1px 1px 3px;
+}
+.table table td {
+  border: 1px solid #c8c8c8;
+  padding: 8px 10px;
+  color: white;
+  font-size: 14px;
+}
+.table table td.lecture {
+  background-color: #b10000;
+}
+.table table td.class {
+  background-color: #2e2eab;
+}
+.table table thead td, .table table tbody td:first-child {
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 8px 25px;
+}
+.table .time-indicator {
+  height: 64px;
+  width: 2px;
+  background-color: black;
+  position: absolute;
+  display: none;
+}
+.table .time-indicator:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: -6px;
+  left: -4px;
+  background-color: black;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,67 @@
+html {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 1302px;
+  margin: 100px auto 0 auto;
+}
+
+.above-table {
+  margin-bottom: 20px;
+  min-height: 18px;
+
+  .button-group {
+    float: right;
+  }
+}
+
+.table {
+  position: relative;
+
+  table {
+    border-collapse: collapse;
+    box-shadow: black 1px 1px 3px;
+
+    td {
+      border: 1px solid #c8c8c8;
+      padding: 8px 10px;
+      color: white;
+      font-size: 14px;
+
+      &.lecture {
+        background-color: #b10000;
+      }
+
+      &.class {
+        background-color: #2e2eab;
+      }
+    }
+
+    thead td, tbody td:first-child{
+      font-size: 16px;
+      color: black;
+      text-align: center;
+      padding: 8px 25px;
+    }
+  }
+
+  .time-indicator {
+    height: 64px;
+    width: 2px;
+    background-color: black;
+    position: absolute;
+    display: none;
+
+    &:before{
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      position: absolute;
+      top: -6px;
+      left: -4px;
+      background-color: black;
+    }
+  }
+}
