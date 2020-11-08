@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Schedule</title>
     <link rel="stylesheet" href="assets/style.css">
+    <script src="https://kit.fontawesome.com/e07e4422f0.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -40,33 +41,33 @@
                     <td>Pondělí</td>
                     <td></td>
                     <td></td>
-                    <td class="lecture" colspan="2">VIA<br>M. Radecký<br>POREC2</td>
-                    <td class="class" colspan="2">VIA<br>M. Radecký<br>PORRV203</td>
-                    <td class="lecture" colspan="2">POS<br>P. Moravec<br>POREC2</td>
-                    <td class="class" colspan="2">VIS Lichý<br>D. Ježek<br>POREB430</td>
-                    <td class="class" colspan="2">SWS<br>L. Vojacek<br>POREB406</td>
+                    <td class="lecture" colspan="2" data-note-id="lectureVIA">VIA<br>M. Radecký<br>POREC2</td>
+                    <td class="class" colspan="2" data-note-id="classVIA">VIA<br>M. Radecký<br>PORRV203</td>
+                    <td class="lecture" colspan="2" data-note-id="lecturePOS">POS<br>P. Moravec<br>POREC2</td>
+                    <td class="class" colspan="2" data-note-id="classVIS">VIS Lichý<br>D. Ježek<br>POREB430</td>
+                    <td class="class" colspan="2" data-note-id="classSWS">SWS<br>L. Vojacek<br>POREB406</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Úterý</td>
                     <td></td>
                     <td></td>
-                    <td class="class" colspan="2">AT .NET<br>J. Janoušek<br>PORRV203</td>
-                    <td class="class" colspan="2">ESPORT<br><br>POREB317</td>
+                    <td class="class" colspan="2" data-note-id="classATNET">AT .NET<br>J. Janoušek<br>PORRV203</td>
+                    <td class="class" colspan="2" data-note-id="classESPORT">ESPORT<br><br>POREB317</td>
                     <td></td>
                     <td></td>
-                    <td class="lecture" colspan="2">VIS<br>M. Kudělka<br>POREC1</td>
-                    <td class="lecture" colspan="2">SWS<br>L. Návrat<br>POREC2</td>
+                    <td class="lecture" colspan="2" data-note-id="lectureVIS">VIS<br>M. Kudělka<br>POREC1</td>
+                    <td class="lecture" colspan="2" data-note-id="lectureSWS">SWS<br>L. Návrat<br>POREC2</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>Středa</td>
-                    <td class="class" colspan="3">POS<br>M. Krumnikl<br>POREB425</td>
+                    <td class="class" colspan="3" data-note-id="classPOS">POS<br>M. Krumnikl<br>POREB425</td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td class="lecture" colspan="2">AT .NET<br>J. Janoušek<br>POREC3</td>
-                    <td class="lecture" colspan="2">ESPORT<br><br>POREC3</td>
+                    <td class="lecture" colspan="2" data-note-id="lectureATNET">AT .NET<br>J. Janoušek<br>POREC3</td>
+                    <td class="lecture" colspan="2" data-note-id="lectureESPORT">ESPORT<br><br>POREC3</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -106,6 +107,12 @@
                 </tbody>
             </table>
             <div class="time-indicator"></div>
+            <dialog data-note-dialog>
+                <label>Text poznámky
+                    <textarea data-note-text></textarea>
+                </label>
+                <button data-note-submit>Uložit</button>
+            </dialog>
         </div>
     </div>
     <script

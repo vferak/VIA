@@ -18,6 +18,7 @@ $('[data-remove-highlight]').click(function () {
 
 class ScheduleTimer {
     constructor(start, end) {
+        this.firstDayNumber = 1;
         this.lastDayNumber = 5;
 
         this.secondsInAMinute = 60;
@@ -46,7 +47,7 @@ class ScheduleTimer {
 
         let $timeIndicator = $('.time-indicator');
 
-        if (seconds < this.firstAvailableSecond || seconds > this.lastAvailableSecond || day > this.lastDayNumber) {
+        if (seconds < this.firstAvailableSecond || seconds > this.lastAvailableSecond || day > this.lastDayNumber || day < this.firstDayNumber) {
             $timeIndicator.hide();
         } else {
             let $table = $('.table');
@@ -89,6 +90,61 @@ class ScheduleTimer {
     }
 }
 
+class Notes {
+    run() {
+        let self = this;
+
+        $.each($('.lecture, .class'), function () {
+            let noteId = $(this).data('note-id');
+            let value = localStorage.getItem(noteId);
+
+            let html = '<a href="#" class="noteButton">';
+            html += self.getNoteInnerHtml(value !== null && value !== '');
+            html += '</a>';
+            $(this).append(html);
+        });
+
+        $('.noteButton').click(function (e) {
+            e.preventDefault();
+
+            let $dialog = $('[data-note-dialog]');
+            let $parent = $(this).parent();
+            let noteId = $parent.data('note-id');
+
+            $dialog.data('note-dialog', noteId);
+
+            $('[data-note-text]').val(localStorage.getItem(noteId));
+            $dialog.get(0).showModal();
+        });
+
+        $(window).click(function (e) {
+            let dialog = $('[data-note-dialog]').get(0);
+            if (e.target === dialog) {
+                dialog.close();
+            }
+        });
+
+        $('[data-note-submit]').click(function (e) {
+            e.preventDefault();
+
+            let $dialog = $('[data-note-dialog]');
+            let dialog = $dialog.get(0);
+            let value = $('[data-note-text]').val();
+            let noteId = $dialog.data('note-dialog');
+
+            localStorage.setItem(noteId, value)
+
+            $('[data-note-id=' + noteId + '] .noteButton').html(self.getNoteInnerHtml(value !== null && value !== ''));
+
+            dialog.close();
+        });
+    }
+
+    getNoteInnerHtml(full) {
+        return full ? '<i class="fas fa-sticky-note"></i>' : '<i class="far fa-sticky-note"></i>';
+    }
+}
+
 $(document).ready(function () {
     let scheduleTimer = new ScheduleTimer('7:15', '18:30');
 
@@ -97,5 +153,9 @@ $(document).ready(function () {
     setInterval(function() {
         scheduleTimer.process();
     }, 1000);
+
+    let notes = new Notes();
+
+    notes.run();
 });
 

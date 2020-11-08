@@ -28,6 +28,7 @@ html {
       padding: 8px 10px;
       color: white;
       font-size: 14px;
+      position: relative;
 
       &.lecture {
         background-color: #b10000;
@@ -35,6 +36,15 @@ html {
 
       &.class {
         background-color: #2e2eab;
+      }
+
+      .noteButton {
+        color: whitesmoke;
+        text-decoration: none;
+        font-size: 20px;
+        position: absolute;
+        top: 5px;
+        right: 10px;
       }
     }
 
@@ -63,5 +73,23 @@ html {
       left: -4px;
       background-color: black;
     }
+  }
+}
+
+dialog {
+  textarea {
+    display: block;
+    resize: vertical;
+    width: 300px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    min-height: 60px;
+    max-height: 120px;
+  }
+
+  button {
+    width: 50px;
+    margin: 0 auto;
+    display: block;
   }
 }
